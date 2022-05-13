@@ -193,8 +193,10 @@ public final class SmsReceiver extends BroadcastReceiver {
             }
             LogUtil.i(TAG, "接收短信完整信息: \n"+sb);
             // TODO 把sb上传到服务器
-            //    String result = HttpClient.doGet("https://www.baidu.com");
-            //     LogUtil.i(TAG, "百度请求信息: \n"+result);
+            Intent msgIntent= new Intent(getBaseContext(), SyncIntentService.class);
+            msgIntent.putExtra("msg",sb)
+            startService(msgIntent);
+            
         }
 
         final int errorCode =
