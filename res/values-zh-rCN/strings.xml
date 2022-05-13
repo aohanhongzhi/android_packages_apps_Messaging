@@ -21,6 +21,7 @@
     <string name="share_intent_label" msgid="6920483598866144717">"短信"</string>
     <string name="share_intent_activity_label" msgid="2939454246983196756">"选择对话"</string>
     <string name="action_settings" msgid="1329008122345201684">"设置"</string>
+    <string name="sendButtonContent" msgid="8422114979691093957">发送</string>
     <string name="sendButtonContentDescription" msgid="8422114979691093956">"发送信息"</string>
     <string name="attachMediaButtonContentDescription" msgid="2758624209216276682">"添加附件"</string>
     <string name="help_and_feedback_activity_label" msgid="8070710971014835182">"帮助"</string>

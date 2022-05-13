@@ -21,6 +21,7 @@
     <string name="share_intent_label" msgid="6920483598866144717">"Messaging"</string>
     <string name="share_intent_activity_label" msgid="2939454246983196756">"Select conversation"</string>
     <string name="action_settings" msgid="1329008122345201684">"Settings"</string>
+    <string name="sendButtonContent" msgid="8422114979691093957">Start messaging</string>
     <string name="sendButtonContentDescription" msgid="8422114979691093956">"Send Message"</string>
     <string name="attachMediaButtonContentDescription" msgid="2758624209216276682">"Add an attachment"</string>
     <string name="help_and_feedback_activity_label" msgid="8070710971014835182">"Help"</string>
