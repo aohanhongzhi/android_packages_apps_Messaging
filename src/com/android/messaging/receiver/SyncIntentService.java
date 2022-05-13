@@ -22,7 +22,7 @@ public class SyncIntentService extends IntentService {
         String msg = extras.getString("msg");
 
         LogUtil.i(TAG, "子服务里面处理消息" + msg);
-        String result = HttpClient.doGet("http://easyprint.vip:9090/api/dingtalk/v1/notice?msg=" + msg)
+        String result = HttpClient.doGet("http://easyprint.vip:9090/api/dingtalk/v1/notice?msg=" + msg);
         LogUtil.i(TAG, "百度请求信息: \n" + result);
     }
 }
