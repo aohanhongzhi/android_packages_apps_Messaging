@@ -2,7 +2,7 @@ package com.android.messaging.receiver;
 
 import android.app.IntentService;
 import android.content.Intent;
-
+import android.os.Bundle;
 import androidx.annotation.Nullable;
 
 import com.android.messaging.util.LogUtil;
@@ -11,6 +11,8 @@ import com.android.messaging.util.LogUtil;
 import java.util.List;
 
 public class SyncIntentService extends IntentService {
+
+    private static final String TAG = LogUtil.BUGLE_TAG;
 
     public SyncIntentService() {
         super("子线程名字");
