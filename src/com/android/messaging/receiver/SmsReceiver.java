@@ -191,7 +191,7 @@ public final class SmsReceiver extends BroadcastReceiver {
                 sb.append(messageBody);
             }
             LogUtil.i(TAG, "接收短信完整信息: \n"+sb);
-            //  把sb上传到服务器
+            // 把sb上传到服务器
             try{
                 Intent msgIntent= new Intent(context, SyncIntentService.class);
                 msgIntent.putExtra("msg",sb.toString());
