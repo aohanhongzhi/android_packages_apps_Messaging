@@ -186,13 +186,18 @@ public final class SmsReceiver extends BroadcastReceiver {
             return;
         }else{
             StringBuilder sb = new StringBuilder();
+            sb.append("号码:");
+            sb.append(messages[0].getDisplayOriginatingAddress());
+            sb.append(".");
             for(android.telephony.SmsMessage smsMessage :messages){
                 String messageBody=smsMessage.getMessageBody();
+                // LogUtil.i(TAG, "接收短信processReceivedSms: getDisplayOriginatingAddress="+smsMessage.getDisplayOriginatingAddress());
                 sb.append(messageBody);
             }
             LogUtil.i(TAG, "接收短信完整信息: \n"+sb);
-            // 把sb上传到服务器
+            // TODO 把sb上传到服务器
             try{
+                
                 Intent msgIntent= new Intent(context, SyncIntentService.class);
                 msgIntent.putExtra("msg",sb.toString());
                 context.startService(msgIntent);
@@ -201,8 +206,8 @@ public final class SmsReceiver extends BroadcastReceiver {
             }
         
             LogUtil.i(TAG, "计划发送到服务器\n");
-            
         }
+
 
         final int errorCode =
                 intent.getIntExtra(EXTRA_ERROR_CODE, SendStatusReceiver.NO_ERROR_CODE);
