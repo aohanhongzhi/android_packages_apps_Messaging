@@ -8,9 +8,13 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import com.android.messaging.util.LogUtil;
 
 public class HttpClient {
+     private static final String TAG = LogUtil.BUGLE_TAG;
     public static String doGet(String httpurl) {
+
+        LogUtil.i(TAG, "get请求地址: \n" + httpurl);
         HttpURLConnection connection = null;
         InputStream is = null;
         BufferedReader br = null;
@@ -30,6 +34,7 @@ public class HttpClient {
             connection.connect();
             // 通过connection连接，获取输入流
             if (connection.getResponseCode() == 200) {
+                LogUtil.i(TAG, "get请求成功: \n" + httpurl);
                 is = connection.getInputStream();
                 // 封装输入流is，并指定字符集
                 br = new BufferedReader(new InputStreamReader(is, "UTF-8"));
@@ -41,6 +46,8 @@ public class HttpClient {
                     sbf.append("\r\n");
                 }
                 result = sbf.toString();
+            }else{
+                 LogUtil.e(TAG, "get请求失败: \n" + httpurl);
             }
         } catch (MalformedURLException e) {
             e.printStackTrace();
